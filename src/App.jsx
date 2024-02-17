@@ -1,13 +1,14 @@
+import { useState } from "react"
 import "./App.css"
 
 export default function App(){
-  let count = 0
-  return(
+  const [count,setCount] = useState(0)
+  return (
     <>
       <div className="board">
         {count}
-        <button onClick={() => console.log(count+=1)}>count</button>
+        <button onClick={() => setCount(count + 3)}>count</button>
       </div>
     </>
-  )
+  );
 }
