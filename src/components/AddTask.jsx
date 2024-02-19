@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import "./AddTask.css";
 
-export const AddTask = ({ tasks, setTasks }) => {
+export default function AddTask({ tasks, setTasks }){
   // const [taskValue, setTaskValue] = useState("");
   const [progress, setProgress] = useState(false);
   const taskRef = useRef("");
