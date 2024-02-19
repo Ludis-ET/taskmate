@@ -5,7 +5,7 @@ export default function AddTask() {
     <section className="addtask">
       <form>
         <label htmlFor="task">Task Name</label>
-        <input type="text" name="task" id="task" required />
+        <input type="text" onChange={() => {console.log(event)}} name="task" id="task" required />
         <button type="submit">Add Task</button>
       </form>
     </section>
