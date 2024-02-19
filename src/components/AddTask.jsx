@@ -5,7 +5,17 @@ export default function AddTask() {
   const [taskValue, setTaskValue] = useState("");
   return (
     <section className="addtask">
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          const task = {
+            id: Math.floor(Math.random() * 1000),
+            name: taskValue,
+            completed: false,
+          };
+          console.log(task);
+        }}
+      >
         {/* <label htmlFor="task">Task Name :</label> */}
         <input
           type="text"
