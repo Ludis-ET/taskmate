@@ -3,6 +3,8 @@ import "./AddTask.css";
 
 export default function AddTask() {
   const [taskValue, setTaskValue] = useState("");
+  const [progress, setProgress] = useState(false);
+
   return (
     <section className="addtask">
       <form
@@ -30,10 +32,14 @@ export default function AddTask() {
           autoComplete="off"
           required
         />
-        <button type="submit">Add Task</button>
+        <select>
+          <option value={false}>Pending</option>
+          <option value={true}>Completed</option>
+        </select>
         <span className="reset" onClick={() => setTaskValue("")}>
           Reset
         </span>
+        <button type="submit">Add Task</button>
       </form>
     </section>
   );
