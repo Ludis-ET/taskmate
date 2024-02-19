@@ -6,7 +6,7 @@ export default function AddTask() {
   return (
     <section className="addtask">
       <form>
-        <label htmlFor="task">Task Name :</label>
+        {/* <label htmlFor="task">Task Name :</label> */}
         <input
           type="text"
           onChange={(e) => {
@@ -14,11 +14,15 @@ export default function AddTask() {
           }}
           name="task"
           id="task"
+          value={taskValue}
+          placeholder="Enter Task Here..."
           autoComplete="off"
           required
         />
         <button type="submit">Add Task</button>
-        <span className="reset">Reset</span>
+        <span className="reset" onClick={() => setTaskValue("")}>
+          Reset
+        </span>
       </form>
     </section>
   );
