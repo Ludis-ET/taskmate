@@ -9,11 +9,12 @@ export default function AddTask() {
         onSubmit={(e) => {
           e.preventDefault();
           const task = {
-            id: Math.floor(Math.random() * 1000),
+            id: Math.floor(Math.random() * 10000),
             name: taskValue,
             completed: false,
           };
           console.log(task);
+          setTaskValue("");
         }}
       >
         {/* <label htmlFor="task">Task Name :</label> */}
