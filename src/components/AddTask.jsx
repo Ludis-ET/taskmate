@@ -13,7 +13,7 @@ export default function AddTask() {
           const task = {
             id: Math.floor(Math.random() * 10000),
             name: taskValue,
-            completed: false,
+            completed: progress,
           };
           console.log(task);
           setTaskValue("");
@@ -32,11 +32,17 @@ export default function AddTask() {
           autoComplete="off"
           required
         />
-        <select>
+        <select onChange={(e) => setProgress(e.target.value)} value={progress}>
           <option value={false}>Pending</option>
           <option value={true}>Completed</option>
         </select>
-        <span className="reset" onClick={() => setTaskValue("")}>
+        <span
+          className="reset"
+          onClick={() => {
+            setTaskValue("");
+            setProgress(false);
+          }}
+        >
           Reset
         </span>
         <button type="submit">Add Task</button>
