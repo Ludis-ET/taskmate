@@ -1,15 +1,16 @@
-export default function TaskCard({ task, del }) {
+import "./TaskCard.css";
+
+export const TaskCard = ({ task, handleDelete }) => {
   return (
-    <li className={task.completed ? "completed" : "incomplete"}>
-      <p>{task.name} </p>
-      <button
-        className="delete"
-        onClick={() => {
-          del(task.id);
-        }}
-      >
-        Delete
-      </button>
-    </li>
+    <div className="taskcard">
+      <li className={task.completed ? "completed" : "incomplete"}>
+        <span>
+          {task.id} - {task.name}
+        </span>
+        <button onClick={() => handleDelete(task.id)} className="delete">
+          Delete
+        </button>
+      </li>
+    </div>
   );
-}
+};
