@@ -1,52 +1,56 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./AddTask.css";
 
-export default function AddTask() {
-  const [taskValue, setTaskValue] = useState("");
+export const AddTask = ({ tasks, setTasks }) => {
+  // const [taskValue, setTaskValue] = useState("");
   const [progress, setProgress] = useState(false);
+  const taskRef = useRef("");
+
+  // const handleChange = (event) => {
+  //     console.log(taskRef.current.value)
+  // }
+
+  const handleReset = () => {
+    // setTaskValue("");
+    taskRef.current.value = "";
+    setProgress(false);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const task = {
+      id: Math.floor(Math.random() * 10000),
+      name: taskRef.current.value,
+      completed: Boolean(progress),
+    };
+    setTasks([...tasks, task]);
+    handleReset();
+  };
 
   return (
     <section className="addtask">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          const task = {
-            id: Math.floor(Math.random() * 10000),
-            name: taskValue,
-            completed: progress,
-          };
-          console.log(task);
-          setTaskValue("");
-        }}
-      >
-        {/* <label htmlFor="task">Task Name :</label> */}
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
-          onChange={(e) => {
-            setTaskValue(e.target.value);
-          }}
           name="task"
           id="task"
-          value={taskValue}
-          placeholder="Enter Task Here..."
+          placeholder="Task Name"
           autoComplete="off"
-          required
+          ref={taskRef}
         />
-        <select onChange={(e) => setProgress(e.target.value)} value={progress}>
-          <option value={false}>Pending</option>
-          <option value={true}>Completed</option>
-        </select>
-        <span
-          className="reset"
-          onClick={() => {
-            setTaskValue("");
-            setProgress(false);
-          }}
+        <select
+          onChange={(event) => setProgress(event.target.value)}
+          value={progress}
         >
+          <option value="false">Pending</option>
+          <option value="true">Completed</option>
+        </select>
+        <span onClick={handleReset} className="reset">
           Reset
         </span>
         <button type="submit">Add Task</button>
       </form>
+      <p>{taskRef.current.value}</p>
     </section>
   );
-}
+};
