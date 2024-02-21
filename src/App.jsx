@@ -7,11 +7,7 @@ import { ShowTask } from "./components/ShowTask";
 import "./App.css";
 
 export const App = () => {
-  const [taskList, setTaskList] = useState([
-    { id: 10001, name: "TASK A", time: "2:09:01 AM 9/14/2030" },
-    { id: 10002, name: "TASK B", time: "2:09:01 AM 9/14/2030" },
-    { id: 10003, name: "TASK C", time: "2:09:01 AM 9/14/2030" },
-  ]);
+  const [taskList, setTaskList] = useState([]);
   return (
     <div className="App">
       <Header />

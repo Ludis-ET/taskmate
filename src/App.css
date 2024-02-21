@@ -15,6 +15,7 @@ header{
   background-color: #FFFFFF;
   border-radius: 5px;
   box-shadow: var(--box-shadow);
+  margin-top: 40px;
 }
 
 header .logo{
@@ -23,13 +24,14 @@ header .logo{
 }
 
 header .logo img{
-  max-width: 40px;
+  max-width: 140px;
+  position: absolute;
   cursor: pointer;
 }
 
 header .logo span{
   font-size: 22px;
-  margin-left: 7px;
+  margin-left: 107px;
   cursor: pointer;
   color: #525252;
 }
