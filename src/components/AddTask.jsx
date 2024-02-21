@@ -21,8 +21,8 @@ export const AddTask = ({ tasklist, setTasklist, task, setTask }) => {
         time: `${date.toLocaleTimeString()} ${date.toLocaleDateString()}`,
       };
       setTasklist([...tasklist, newTask]);
-      e.target.task.value = "";
     }
+    setTask({});
   };
 
   return (
