@@ -1,4 +1,4 @@
-export const AddTask = () => {
+export const AddTask = ({taskList,setTaskList}) => {
   return (
     <section className="addTask">
       <form>
