@@ -5,9 +5,10 @@ export const AddTask = ({ taskList, setTaskList }) => {
     const data = {
       id: taskList.length + 1,
       name: e.target.task.value,
-      date: `${date.toLocaleTimeString()} , ${date.toLocaleDateString()}`,
+      time: `${date.toLocaleTimeString()} , ${date.toLocaleDateString()}`,
     };
     setTaskList([...taskList, data]);
+    e.target.task.value = "";
   };
   return (
     <section className="addTask">
