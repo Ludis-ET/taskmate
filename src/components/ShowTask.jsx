@@ -1,4 +1,4 @@
-export const AddTask = () => {
+export const ShowTask = () => {
   return (
     <div>
       

@@ -1,9 +1,0 @@
-footer{
-    max-width: 1200px;
-    margin: auto;
-    text-align: center;
-    padding: 20px;
-    height: 70px;
-    font-size: 18px;
-    border-top: 1px solid var(--theme-border);
-}
